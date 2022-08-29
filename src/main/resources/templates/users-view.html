@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+</head>
+<body>
+<h3>Users</h3>
+
+<div>
+  <table border="15">
+    <tr>
+      <th>Id</th>
+      <th>User</th>
+      <th>Update user</th>
+      <th>Drop user</th>
+    </tr>
+    <tr th:each="user : ${usersInController}">
+      <td th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId()}">id</td>
+      <td th:utext="${user.getName()}">User Name</td>
+<!--      <td> <form th:action="@{/update/{id}(id=${user.getId()})}">-->
+<!--        <button type="submit">Update</button>-->
+<!--      </form> </td>-->
+      <td>
+        <form th:action="@{/admin/{id}/update(id=${user.getId()})}">
+        <button type="submit">Update</button>
+        </form>
+      </td>
+
+      <td>
+        <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
+        <button type="submit">DELETE?!</button>
+        </form>
+      </td>
+
+    </tr>
+  </table>
+</div>
+
+<!--<div th:each="user : ${usersInController}">-->
+<!--  <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId()}">id</a>-->
+<!--</div>-->
+<br/>
+<hr/>
+<a th:href="@{/admin/addUser}">
+  <button type="button">Add new user</button>
+</a>
+<br>
+<br>
+<a th:href="@{/logout}">
+  <button type="button">Logout</button>
+</a>
+</body>
+</html>

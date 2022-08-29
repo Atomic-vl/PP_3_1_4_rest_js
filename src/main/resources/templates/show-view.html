@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>User</title>
+</head>
+<body>
+<p th:text="${userInController.getId()}">Id</p>
+<p th:text="${userInController.getName()}">Name</p>
+<p th:text="${userInController.getEmail()}">email</p>
+<p th:text="${userInController.getUsername()}">email</p>
+<br>
+<br>
+<a th:href="@{/logout}">
+  <button type="button">Logout</button>
+</a>
+<!--<p th:text="${userUser.get()}">username</p>-->
+
+</body>
+</html>
