@@ -15,22 +15,25 @@ import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("users")
+@RequestMapping("/api/users")
 public class usersController {
 
-    @Autowired
     private UserDao userDao;
-    @Autowired
     private UserRepository userRepository;
+    @Autowired
+    public usersController(UserDao userDao, UserRepository userRepository) {
+        this.userDao = userDao;
+        this.userRepository = userRepository;
+    }
 
-    @GetMapping("/")
+    @GetMapping("/user")
     public String showUser(Model model, Principal principal) {
 //        model.addAttribute("userInController", userDao.findUser(id));
 //        model.addAttribute("userInController", userRepository.findById(id).get());
         User user = userRepository.findByUsername(principal.getName());
         model.addAttribute("userInController", user);
 
-        return "show-view";
+        return "userPage-view";
     }
 
 }

@@ -33,6 +33,14 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
+    public User(String name, String username, String password, String email, Collection<Role> roles) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
@@ -60,6 +68,9 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
+//        if (!(this.roles == null)) {
+//            this.roles.forEach(role -> System.out.println(role));
+//        }
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
