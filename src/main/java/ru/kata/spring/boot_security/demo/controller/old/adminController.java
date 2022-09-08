@@ -11,12 +11,11 @@ import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
 import java.security.Principal;
-import java.util.Collections;
 import java.util.Set;
 
 
-@Controller
-@RequestMapping("/api/admin")
+//@Controller
+//@RequestMapping("/api/admin")
 public class adminController {
 
     private UserDao userDao;

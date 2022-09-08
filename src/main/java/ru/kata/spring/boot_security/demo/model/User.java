@@ -68,9 +68,9 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
-//        if (!(this.roles == null)) {
-//            this.roles.forEach(role -> System.out.println(role));
-//        }
+        if (!(this.roles == null)) {
+            this.roles.forEach(role -> System.out.println(role));
+        }
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
